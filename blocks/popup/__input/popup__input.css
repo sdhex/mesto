@@ -9,7 +9,7 @@
   outline: none;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 580px) {
   .popup__input {
     max-width: 232px;
   }
