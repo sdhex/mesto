@@ -6,25 +6,12 @@
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   padding-bottom: 9px;
   max-width: 358px;
+  margin-bottom: 30px;
   outline: none;
 }
 
 @media screen and (max-width: 580px) {
   .popup__input {
     max-width: 232px;
-  }
-}
-
-.popup__input:first-of-type {
-    margin-bottom: 28px;
-  }
-
-.popup__input:last-of-type {
-  margin-bottom: 48px;
-}
-
-@media screen and (max-width: 580px) {
-  .popup__input:last-of-type {
-    margin-bottom: 45px;
   }
 }
