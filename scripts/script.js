@@ -28,6 +28,6 @@ function handleFormSubmit (evt) {
   profileName.textContent = popupName.value;
   profileDescription.textContent = popupDescription.value;
   popupClose();
-}
+};
 
 popupForm.addEventListener('submit', handleFormSubmit);
