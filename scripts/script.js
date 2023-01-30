@@ -30,10 +30,12 @@ const editButton = document.querySelector('.profile__edit-button');
 const closeEditButton = document.querySelector('.popup__close-button');
 const addButton = document.querySelector('.profile__add-button');
 const closeAddButton = document.querySelector('.popup__close-button_add');
+const closeImageButton = document.querySelector('.popup__close-button_image');
 
 //popups
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupAddImage = document.querySelector('.popup_add-image');
+const popupViewImage = document.querySelector('.popup_view-image');
 
 //inputs
 const profileName = document.querySelector('.profile__name');
@@ -47,6 +49,10 @@ const popupGalleryLink = document.querySelector('.popup__input_type_gallery-link
 //forms
 const popupEditForm = document.querySelector('.popup__form_type_edit');
 const popupAddForm = document.querySelector('.popup__form_type_add');
+
+const popupImage = document.querySelector('.popup__image');
+const popupImageTitle = document.querySelector('.popup__image-title');
+
 
 const togglePopup = function (popup) {
   popup.classList.toggle('popup_opened');
@@ -68,6 +74,10 @@ closeAddButton.addEventListener('click', function () {
 
 addButton.addEventListener('click', function () {
   togglePopup(popupAddImage);
+});
+
+closeImageButton.addEventListener('click', function () {
+  togglePopup(popupViewImage);
 });
 
 function handleEditFormSubmit(evt) {
@@ -99,6 +109,13 @@ function createGalleryItem(item) {
 
   removeButton.addEventListener('click', function () {
     galleryItem.remove()
+  });
+
+  galleryImage.addEventListener('click', function () {
+    togglePopup(popupViewImage);
+    popupImage.src = item.link;
+    popupImage.alt = item.name;
+    popupImageTitle.textContent = item.name;
   });
 
   return galleryItem;
