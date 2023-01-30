@@ -50,6 +50,7 @@ const popupGalleryLink = document.querySelector('.popup__input_type_gallery-link
 const popupEditForm = document.querySelector('.popup__form_type_edit');
 const popupAddForm = document.querySelector('.popup__form_type_add');
 
+//image
 const popupImage = document.querySelector('.popup__image');
 const popupImageTitle = document.querySelector('.popup__image-title');
 
@@ -74,7 +75,7 @@ closeAddButton.addEventListener('click', function () {
 
 addButton.addEventListener('click', function () {
   togglePopup(popupAddImage);
-  popupAddForm.reset()
+  popupAddForm.reset();
 });
 
 closeImageButton.addEventListener('click', function () {
@@ -105,11 +106,11 @@ function createGalleryItem(item) {
   galleryImage.alt = item.name;
 
   likeButton.addEventListener('click', function () {
-    likeButton.classList.toggle('gallery__like_active')
+    likeButton.classList.toggle('gallery__like_active');
   });
 
   removeButton.addEventListener('click', function () {
-    galleryItem.remove()
+    galleryItem.remove();
   });
 
   galleryImage.addEventListener('click', function () {
