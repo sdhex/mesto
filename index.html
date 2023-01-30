@@ -25,88 +25,55 @@
       </section>
 
       <section class="gallery" aria-label="галерея">
-        <div class="gallery__item">
-          <button class="gallery__remove" type="button" aria-label="удалить"></button>
-          <img class="gallery__image" src="./images/karachaevo.png" alt="разрушенный храм Карачаевск">
-          <div class="gallery__description">
-            <h2 class="gallery__title">Карачаевск</h2>
-            <button class="gallery__like" type="button" aria-label="лайк"></button>
-          </div>
-        </div>
-        <div class="gallery__item">
-          <button class="gallery__remove" type="button" aria-label="удалить"></button>
-          <img class="gallery__image" src="./images/elbrus.png" alt="гора Эльбрус">
-          <div class="gallery__description">
-            <h2 class="gallery__title">Гора Эльбрус</h2>
-            <button class="gallery__like" type="button" aria-label="лайк"></button>
-          </div>
-        </div>
-        <div class="gallery__item">
-          <button class="gallery__remove" type="button" aria-label="удалить"></button>
-          <img class="gallery__image" src="./images/dombai.png" alt="горы Домбая">
-          <div class="gallery__description">
-            <h2 class="gallery__title">Домбай</h2>
-            <button class="gallery__like" type="button" aria-label="лайк"></button>
-          </div>
-        </div>
-        <div class="gallery__item">
-          <button class="gallery__remove" type="button" aria-label="удалить"></button>
-          <img class="gallery__image" src="./images/elbrus.png" alt="гора Эльбрус">
-          <div class="gallery__description">
-            <h2 class="gallery__title">Гора Эльбрус</h2>
-            <button class="gallery__like" type="button" aria-label="лайк"></button>
-          </div>
-        </div>
-        <div class="gallery__item">
-          <button class="gallery__remove" type="button" aria-label="удалить"></button>
-          <img class="gallery__image" src="./images/dombai.png" alt="горы Домбая">
-          <div class="gallery__description">
-            <h2 class="gallery__title">Домбай</h2>
-            <button class="gallery__like" type="button" aria-label="лайк"></button>
-          </div>
-        </div>
-        <div class="gallery__item">
-          <button class="gallery__remove" type="button" aria-label="удалить"></button>
-          <img class="gallery__image" src="./images/karachaevo.png" alt="разрушенный храм Карачаевск">
-          <div class="gallery__description">
-            <h2 class="gallery__title">Карачаево-Черкесская Республика</h2>
-            <button class="gallery__like" type="button" aria-label="лайк"></button>
-          </div>
-        </div>
+
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&COPY; 2023 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup_edit-profile">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <button class="popup__close-button" type="button" aria-label="закрыть"></button>
-        <form class="popup__form" name="profileInfo">
-          <input class="popup__input popup__input_type_name" name="name">
-          <input class="popup__input popup__input_type_description" name="description">
+        <button class="popup__close-button popup__close-button_edit" type="button" aria-label="закрыть"></button>
+        <form class="popup__form popup__form_type_edit" name="profileInfo">
+          <input class="popup__input popup__input_type_profile-name" name="name">
+          <input class="popup__input popup__input_type_profile-description" name="description">
           <button class="popup__save-button" type="submit" aria-label="сохранить">Сохранить</button>
         </form>
       </div>
     </div>
-    <div class="popup">
+    <div class="popup popup_add-image">
       <div class="popup__container">
         <h2 class="popup__title">Новое место</h2>
-        <button class="popup__close-button" type="button" aria-label="закрыть"></button>
-        <form class="popup__form" name="profileInfo">
-          <input class="popup__input popup__input_type_name" value="Название" name="name">
-          <input class="popup__input popup__input_type_description" value="Ссылка на картинку" name="link">
+        <button class="popup__close-button popup__close-button_add" type="button" aria-label="закрыть"></button>
+        <form class="popup__form popup__form_type_add" name="profileInfo">
+          <input class="popup__input popup__input_type_gallery-title" placeholder="Название" name="name">
+          <input class="popup__input popup__input_type_gallery-link" placeholder="Ссылка на картинку" name="link">
           <button class="popup__save-button" type="submit" aria-label="сохранить">Сохранить</button>
         </form>
       </div>
     </div>
+    <div class="popup popup_view-image">
+      <figure class="popup__figure">
+        <img class="popup__image">
+        <button class="popup__close-button popup__close-button_image" type="button"></button>
+        <figcaption class="popup__image-title"></figcaption>
+      </figure>
+    </div>
   </div>
-  <template id="item-template">
+  <div class="popup popup_view-image">
+    <figure class="popup__figure">
+      <img class="popup__image">
+      <button class="popup__close-button popup__close-button_image" type="button"></button>
+      <figcaption class="popup__image-title"></figcaption>
+    </figure>
+  </div>
+  <template id="gallery-template">
     <div class="gallery__item">
       <button class="gallery__remove" type="button" aria-label="удалить"></button>
       <img class="gallery__image">
       <div class="gallery__description">
-        <h2 class="gallety__title"></h2>
+        <h2 class="gallery__title"></h2>
         <button class="gallery__like" type="button" aria-label="лайк"></button>
       </div>
     </div>
