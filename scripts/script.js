@@ -74,6 +74,7 @@ closeAddButton.addEventListener('click', function () {
 
 addButton.addEventListener('click', function () {
   togglePopup(popupAddImage);
+  popupAddForm.reset()
 });
 
 closeImageButton.addEventListener('click', function () {
@@ -135,7 +136,7 @@ function handleAddFormSubmit(evt) {
     name: popupGalleryTitle.value,
     link: popupGalleryLink.value
   });
-  gallery.append(createGalleryItem(addItem));
+  gallery.prepend(createGalleryItem(addItem));
   togglePopup(popupAddImage);
 };
 
