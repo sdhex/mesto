@@ -36,8 +36,8 @@
         <h2 class="popup__title">Редактировать профиль</h2>
         <button class="popup__close-button popup__close-button_edit" type="button" aria-label="закрыть"></button>
         <form class="popup__form popup__form_type_edit" name="profileInfo">
-          <input class="popup__input popup__input_type_profile-name" name="name">
-          <input class="popup__input popup__input_type_profile-description" name="description">
+          <input class="popup__input popup__input_type_profile-name" name="name" required>
+          <input class="popup__input popup__input_type_profile-description" name="description" required>
           <button class="popup__save-button" type="submit" aria-label="сохранить">Сохранить</button>
         </form>
       </div>
@@ -47,8 +47,8 @@
         <h2 class="popup__title">Новое место</h2>
         <button class="popup__close-button popup__close-button_add" type="button" aria-label="закрыть"></button>
         <form class="popup__form popup__form_type_add" name="profileInfo">
-          <input class="popup__input popup__input_type_gallery-title" placeholder="Название" name="name">
-          <input class="popup__input popup__input_type_gallery-link" placeholder="Ссылка на картинку" name="link">
+          <input class="popup__input popup__input_type_gallery-title" placeholder="Название" name="name" required>
+          <input class="popup__input popup__input_type_gallery-link" placeholder="Ссылка на картинку" name="link" type="url" required>
           <button class="popup__save-button" type="submit" aria-label="сохранить">Сохранить</button>
         </form>
       </div>
@@ -61,13 +61,6 @@
       </figure>
     </div>
   </div>
-  <div class="popup popup_view-image">
-    <figure class="popup__figure">
-      <img class="popup__image">
-      <button class="popup__close-button popup__close-button_image" type="button"></button>
-      <figcaption class="popup__image-title"></figcaption>
-    </figure>
-  </div>
   <template id="gallery-template">
     <div class="gallery__item">
       <button class="gallery__remove" type="button" aria-label="удалить"></button>
@@ -78,6 +71,7 @@
       </div>
     </div>
   </template>
+  <script src="./scripts/cards.js"></script>
   <script src="./scripts/script.js"></script>
 </body>
 
