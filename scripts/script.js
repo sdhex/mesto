@@ -29,36 +29,23 @@ const imageView = document.querySelector('.popup__image');
 const imageViewTitle = document.querySelector('.popup__image-title');
 
 
-function closePopup (popup) {
-  popup.classList.remove('popup_opened');
-};
+const openPopup = popup => popup.classList.add('popup_opened');
+const closePopup = popup => popup.classList.remove('popup_opened');
 
-function openPopup (popup) {
-  popup.classList.add('popup_opened');
-};
-
-buttonOpenEditProfile.addEventListener('click', function () {
+buttonOpenEditProfile.addEventListener('click', () => {
   openPopup(popupEditProfile);
   profileNameInput.value = profileName.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
 });
 
-buttonOpenAddImage.addEventListener('click', function () {
+buttonOpenAddImage.addEventListener('click', () => {
   openPopup(popupAddImage);
   formAddImage.reset();
 });
 
-buttonCloseAddImage.addEventListener('click', function () {
-  closePopup(popupAddImage);
-});
-
-buttonCloseEditProfile.addEventListener('click', function () {
-  closePopup(popupEditProfile);
-});
-
-buttonCloseViewImage.addEventListener('click', function () {
-  closePopup(popupViewCard);
-});
+buttonCloseAddImage.addEventListener('click', () => closePopup(popupAddImage));
+buttonCloseEditProfile.addEventListener('click', () => closePopup(popupEditProfile));
+buttonCloseViewImage.addEventListener('click', () => closePopup(popupViewCard));
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
