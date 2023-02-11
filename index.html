@@ -36,8 +36,20 @@
         <h2 class="popup__title">Редактировать профиль</h2>
         <button class="popup__close-button popup__close-button_edit" type="button" aria-label="закрыть"></button>
         <form class="popup__form popup__form_type_edit" name="profileInfo">
-          <input class="popup__input popup__input_type_profile-name" name="name" required>
-          <input class="popup__input popup__input_type_profile-description" name="description" required>
+          <input class="popup__input popup__input_type_profile-name"
+                 name="name"
+                 required
+                 type="text"
+                 minlength="2"
+                 maxlength="40"
+                 >
+          <input class="popup__input popup__input_type_profile-description"
+                 name="description"
+                 required
+                 type="text"
+                 minlength="2"
+                 maxlength="200"
+                 >
           <button class="popup__save-button" type="submit" aria-label="сохранить">Сохранить</button>
         </form>
       </div>
@@ -46,9 +58,20 @@
       <div class="popup__container">
         <h2 class="popup__title">Новое место</h2>
         <button class="popup__close-button popup__close-button_add" type="button" aria-label="закрыть"></button>
-        <form class="popup__form popup__form_type_add" name="profileInfo">
-          <input class="popup__input popup__input_type_gallery-title" placeholder="Название" name="name" required>
-          <input class="popup__input popup__input_type_gallery-link" placeholder="Ссылка на картинку" name="link" type="url" required>
+        <form class="popup__form popup__form_type_add" name="addImage">
+          <input class="popup__input popup__input_type_gallery-title"
+                 placeholder="Название"
+                 name="title"
+                 type="text"
+                 required
+                 minlength="2"
+                 maxlength="30"
+                 >
+          <input class="popup__input popup__input_type_gallery-link"
+                 placeholder="Ссылка на картинку"
+                 name="link"
+                 type="url"
+                 required>
           <button class="popup__save-button" type="submit" aria-label="сохранить">Сохранить</button>
         </form>
       </div>
