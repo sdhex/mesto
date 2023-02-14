@@ -57,13 +57,13 @@ buttonOpenEditProfile.addEventListener('click', () => {
   openPopup(popupEditProfile);
   profileNameInput.value = profileName.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  enableValidation(formValidationConfig);
+  resetValidation(formAddImage, formValidationConfig);
 });
 
 buttonOpenAddImage.addEventListener('click', () => {
   openPopup(popupAddImage);
   formAddImage.reset();
-  enableValidation(formValidationConfig);
+  resetValidation(formEditProfile, formValidationConfig);
 });
 
 buttonCloseAddImage.addEventListener('click', () => closePopup(popupAddImage));

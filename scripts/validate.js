@@ -12,7 +12,7 @@ function disableSubmit(event) {
 };
 
 function enableValidation(config) {
-  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  const formList = document.querySelectorAll(config.formSelector);
 
   formList.forEach((form) => {
     form.addEventListener('submit', disableSubmit);
@@ -59,7 +59,18 @@ function addInputListeners(form, config) {
   });
 };
 
+function resetValidation(form, config) {
+  const inputList = form.querySelectorAll(config.inputSelector);
+  const buttonSubmit = form.querySelector(config.submitButtonSelector);
 
+  inputList.forEach(element => {
+    element.classList.remove(config.inputErrorClass);
+    element.classList.remove(config.errorClass);
+  });
+
+  buttonSubmit.disabled = true;
+  buttonSubmit.classList.add(config.inactiveButtonClass);
+}
 
 enableValidation(formValidationConfig);
 
