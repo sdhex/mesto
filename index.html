@@ -35,22 +35,31 @@
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
         <button class="popup__close-button popup__close-button_edit" type="button" aria-label="закрыть"></button>
-        <form class="popup__form popup__form_type_edit" name="profileInfo">
+        <form class="popup__form popup__form_type_edit"
+              name="profile-info"
+              novalidate
+              >
           <input class="popup__input popup__input_type_profile-name"
                  name="name"
                  required
                  type="text"
                  minlength="2"
                  maxlength="40"
-                 >
+                 id="input-profile-name"
+                >
+                <span id="input-profile-name-error" class="popup__error_visble"></span>
+
           <input class="popup__input popup__input_type_profile-description"
                  name="description"
                  required
                  type="text"
                  minlength="2"
                  maxlength="200"
+                 id="input-profile-description"
                  >
-          <button class="popup__save-button" type="submit" aria-label="сохранить">Сохранить</button>
+                 <span id="input-profile-description-error" class="popup__error_visble"></span>
+
+          <button class="popup__button" type="submit" aria-label="сохранить">Сохранить</button>
         </form>
       </div>
     </div>
@@ -58,7 +67,10 @@
       <div class="popup__container">
         <h2 class="popup__title">Новое место</h2>
         <button class="popup__close-button popup__close-button_add" type="button" aria-label="закрыть"></button>
-        <form class="popup__form popup__form_type_add" name="addImage">
+        <form class="popup__form popup__form_type_add"
+              name="add-image"
+              novalidate
+              >
           <input class="popup__input popup__input_type_gallery-title"
                  placeholder="Название"
                  name="title"
@@ -66,13 +78,19 @@
                  required
                  minlength="2"
                  maxlength="30"
+                 id="input-gallery-title"
                  >
+          <span id="input-gallery-title-error" class="popup__error_visble"></span>
           <input class="popup__input popup__input_type_gallery-link"
                  placeholder="Ссылка на картинку"
                  name="link"
                  type="url"
-                 required>
-          <button class="popup__save-button" type="submit" aria-label="сохранить">Сохранить</button>
+                 id="input-gallery-link"
+                 required
+                 >
+
+          <span id="input-gallery-link-error" class="popup__error_visble"></span>
+          <button class="popup__button popup__button_disabled" type="submit" aria-label="сохранить">Создать</button>
         </form>
       </div>
     </div>
@@ -94,7 +112,9 @@
       </div>
     </div>
   </template>
+
   <script src="./scripts/cards.js"></script>
+  <script src="./scripts/validate.js"></script>
   <script src="./scripts/script.js"></script>
 </body>
 

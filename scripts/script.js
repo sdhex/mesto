@@ -28,9 +28,30 @@ const formAddImage = document.querySelector('.popup__form_type_add');
 const imageView = document.querySelector('.popup__image');
 const imageViewTitle = document.querySelector('.popup__image-title');
 
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  };
+};
 
-const openPopup = popup => popup.classList.add('popup_opened');
-const closePopup = popup => popup.classList.remove('popup_opened');
+function closeByOverlay(evt) {
+  if (evt.target.classList.contains('popup_opened')) {
+    closePopup(evt.target);
+  }
+}
+
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEscape);
+  document.addEventListener('mousedown', closeByOverlay);
+};
+
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEscape);
+  document.addEventListener('mousedown', closeByOverlay);
+}
 
 buttonOpenEditProfile.addEventListener('click', () => {
   openPopup(popupEditProfile);
