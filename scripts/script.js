@@ -28,6 +28,18 @@ const formAddImage = document.querySelector('.popup__form_type_add');
 const imageView = document.querySelector('.popup__image');
 const imageViewTitle = document.querySelector('.popup__image-title');
 
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEscape);
+  document.addEventListener('mousedown', closeByOverlay);
+};
+
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEscape);
+  document.removeEventListener('mousedown', closeByOverlay);
+};
+
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened');
@@ -39,29 +51,19 @@ function closeByOverlay(evt) {
   if (evt.target.classList.contains('popup_opened')) {
     closePopup(evt.target);
   }
-}
-
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closeByEscape);
-  document.addEventListener('mousedown', closeByOverlay);
 };
-
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closeByEscape);
-  document.addEventListener('mousedown', closeByOverlay);
-}
 
 buttonOpenEditProfile.addEventListener('click', () => {
   openPopup(popupEditProfile);
   profileNameInput.value = profileName.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
+  enableValidation(formValidationConfig);
 });
 
 buttonOpenAddImage.addEventListener('click', () => {
   openPopup(popupAddImage);
   formAddImage.reset();
+  enableValidation(formValidationConfig);
 });
 
 buttonCloseAddImage.addEventListener('click', () => closePopup(popupAddImage));

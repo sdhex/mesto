@@ -45,7 +45,7 @@ function toggleButton(form, config) {
   const isFormValid = form.checkValidity();
 
   buttonSubmit.disabled = !isFormValid;
-  buttonSubmit.classList.toggle('popup__button_disabled', !isFormValid);
+  buttonSubmit.classList.toggle(config.inactiveButtonClass, !isFormValid);
 };
 
 
