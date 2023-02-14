@@ -31,11 +31,11 @@ function handleFormInput(event, config) {
   const errorElement = document.querySelector(`#${inputId}-error`);
   if (input.validity.valid) {
     input.classList.remove(config.inputErrorClass);
-    input.classList.remove(config.errorClass);
+    errorElement.classList.remove(config.errorClass);
     errorElement.textContent = '';
   } else {
     input.classList.add(config.inputErrorClass);
-    input.classList.add(config.errorClass);
+    errorElement.classList.add(config.errorClass);
     errorElement.textContent = input.validationMessage;
   }
 };
@@ -61,10 +61,14 @@ function addInputListeners(form, config) {
 
 function resetValidation(form, config) {
   const inputList = form.querySelectorAll(config.inputSelector);
+  const errorList = form.querySelectorAll('.popup__error');
   const buttonSubmit = form.querySelector(config.submitButtonSelector);
 
   inputList.forEach(element => {
     element.classList.remove(config.inputErrorClass);
+  });
+
+  errorList.forEach(element => {
     element.classList.remove(config.errorClass);
   });
 
