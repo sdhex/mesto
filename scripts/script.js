@@ -21,8 +21,8 @@ const cardTitleInput = document.querySelector('.popup__input_type_gallery-title'
 const cardLinkInput = document.querySelector('.popup__input_type_gallery-link');
 
 //forms
-const formEditProfile = document.querySelector('.popup__form_type_edit');
-const formAddImage = document.querySelector('.popup__form_type_add');
+const profileForm = document.forms["profile-form"];
+const cardForm = document.forms["card-form"];
 
 //image
 const imageView = document.querySelector('.popup__image');
@@ -57,13 +57,13 @@ buttonOpenEditProfile.addEventListener('click', () => {
   openPopup(popupEditProfile);
   profileNameInput.value = profileName.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  resetValidation(formEditProfile, formValidationConfig);
+  resetValidation(profileForm, formValidationConfig);
 });
 
 buttonOpenAddImage.addEventListener('click', () => {
   openPopup(popupAddImage);
-  formAddImage.reset();
-  resetValidation(formAddImage, formValidationConfig);
+  profileForm.reset();
+  resetValidation(profileForm, formValidationConfig);
 });
 
 buttonCloseAddImage.addEventListener('click', () => closePopup(popupAddImage));
@@ -77,7 +77,7 @@ function handleEditFormSubmit(evt) {
   closePopup(popupEditProfile);
 };
 
-formEditProfile.addEventListener('submit', handleEditFormSubmit);
+profileForm.addEventListener('submit', handleEditFormSubmit);
 
 const cardTemplate = document.querySelector('#gallery-template').content;
 
@@ -129,5 +129,5 @@ function handleAddFormSubmit(evt) {
   closePopup(popupAddImage);
 };
 
-formAddImage.addEventListener('submit', handleAddFormSubmit);
+profileForm.addEventListener('submit', handleAddFormSubmit);
 

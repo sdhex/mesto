@@ -61,7 +61,8 @@ function addInputListeners(form, config) {
 
 function resetValidation(form, config) {
   const inputList = form.querySelectorAll(config.inputSelector);
-  const errorList = form.querySelectorAll('.popup__error');
+  const errorList = form.querySelectorAll(config.errorClass);
+  console.log(errorList)
   const buttonSubmit = form.querySelector(config.submitButtonSelector);
 
   inputList.forEach(element => {
