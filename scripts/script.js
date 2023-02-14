@@ -72,7 +72,6 @@ buttonCloseViewImage.addEventListener('click', () => closePopup(popupViewCard));
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-  openPopup(popupEditProfile);
   profileName.textContent = profileNameInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closePopup(popupEditProfile);
