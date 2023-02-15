@@ -63,7 +63,7 @@ buttonOpenEditProfile.addEventListener('click', () => {
 buttonOpenAddImage.addEventListener('click', () => {
   openPopup(popupAddImage);
   profileForm.reset();
-  resetValidation(profileForm, formValidationConfig);
+  resetValidation(cardForm, formValidationConfig);
 });
 
 buttonCloseAddImage.addEventListener('click', () => closePopup(popupAddImage));
