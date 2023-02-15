@@ -2,6 +2,7 @@ const formValidationConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',
+  errorSelector: '.popup__error',
   inactiveButtonClass: 'popup__button_disabled',
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__error_visible'
@@ -61,7 +62,7 @@ function addInputListeners(form, config) {
 
 function resetValidation(form, config) {
   const inputList = form.querySelectorAll(config.inputSelector);
-  const errorList = form.querySelectorAll('.popup__error');
+  const errorList = form.querySelectorAll(config.errorSelector);
   const buttonSubmit = form.querySelector(config.submitButtonSelector);
 
   inputList.forEach(element => {
@@ -77,4 +78,3 @@ function resetValidation(form, config) {
 }
 
 enableValidation(formValidationConfig);
-
