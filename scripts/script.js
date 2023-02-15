@@ -69,14 +69,14 @@ closeButtons.forEach((button) => {
   button.addEventListener('click', () => closePopup(popup));
 });
 
-function handleEditFormSubmit(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = profileNameInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closePopup(popupEditProfile);
 };
 
-profileForm.addEventListener('submit', handleEditFormSubmit);
+profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 const cardTemplate = document.querySelector('#gallery-template').content;
 
@@ -118,7 +118,7 @@ initialCards.forEach(function (cardData) {
   gallery.append(createGalleryCard(cardData));
 });
 
-function handleAddFormSubmit(evt) {
+function handleCardFormSubmit(evt) {
   evt.preventDefault();
   const cardData = ({
     name: cardTitleInput.value,
@@ -128,4 +128,4 @@ function handleAddFormSubmit(evt) {
   closePopup(popupAddImage);
 };
 
-cardForm.addEventListener('submit', handleAddFormSubmit);
+cardForm.addEventListener('submit', handleCardFormSubmit);
