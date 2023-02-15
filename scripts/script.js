@@ -2,10 +2,8 @@ const gallery = document.querySelector('.gallery');
 
 //buttons
 const buttonOpenEditProfile = document.querySelector('.profile__edit-button');
-const buttonCloseEditProfile = document.querySelector('.popup__close-button');
 const buttonOpenAddImage = document.querySelector('.profile__add-button');
-const buttonCloseAddImage = document.querySelector('.popup__close-button_add');
-const buttonCloseViewImage = document.querySelector('.popup__close-button_image');
+const closeButtons = document.querySelectorAll('.popup__close-button');
 
 //popups
 const popupEditProfile = document.querySelector('.popup_edit-profile');
@@ -66,9 +64,10 @@ buttonOpenAddImage.addEventListener('click', () => {
   resetValidation(cardForm, formValidationConfig);
 });
 
-buttonCloseAddImage.addEventListener('click', () => closePopup(popupAddImage));
-buttonCloseEditProfile.addEventListener('click', () => closePopup(popupEditProfile));
-buttonCloseViewImage.addEventListener('click', () => closePopup(popupViewCard));
+closeButtons.forEach((button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
+});
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
