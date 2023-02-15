@@ -128,5 +128,4 @@ function handleAddFormSubmit(evt) {
   closePopup(popupAddImage);
 };
 
-profileForm.addEventListener('submit', handleAddFormSubmit);
-
+cardForm.addEventListener('submit', handleAddFormSubmit);
