@@ -60,7 +60,7 @@ buttonOpenEditProfile.addEventListener('click', () => {
 
 buttonOpenAddImage.addEventListener('click', () => {
   openPopup(popupAddImage);
-  profileForm.reset();
+  cardForm.reset();
   resetValidation(cardForm, formValidationConfig);
 });
 
