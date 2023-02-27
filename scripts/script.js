@@ -1,3 +1,5 @@
+import Card from './Card.js'
+
 const gallery = document.querySelector('.gallery');
 
 //buttons
@@ -32,26 +34,26 @@ function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closeByEscape);
   document.addEventListener('mousedown', closeByOverlay);
-};
+}
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeByEscape);
   document.removeEventListener('mousedown', closeByOverlay);
-};
+}
 
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened');
     closePopup(openedPopup);
-  };
-};
+  }
+}
 
 function closeByOverlay(evt) {
   if (evt.target.classList.contains('popup_opened')) {
     closePopup(evt.target);
   }
-};
+}
 
 buttonOpenEditProfile.addEventListener('click', () => {
   openPopup(popupEditProfile);
@@ -76,49 +78,25 @@ function handleEditFormSubmit(evt) {
   profileName.textContent = profileNameInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closePopup(popupEditProfile);
-};
+}
 
 formEditProfile.addEventListener('submit', handleEditFormSubmit);
 
-const cardTemplate = document.querySelector('#gallery-template').content;
-
 function createGalleryCard(cardData) {
-  const galleryCard = cardTemplate.cloneNode(true);
-  const card = galleryCard.querySelector('.gallery__item');
-  const cardTitle = galleryCard.querySelector('.gallery__title');
-  const cardImage = galleryCard.querySelector('.gallery__image');
-  const buttonRemove = galleryCard.querySelector('.gallery__remove');
-  const buttonLike = galleryCard.querySelector('.gallery__like');
+  const card = new Card(cardData, '#gallery-template', viewCardImage);
+  return card.generateCard();
+}
 
-  cardTitle.textContent = cardData.name;
-  cardImage.src = cardData.link;
-  cardImage.alt = cardData.name;
+function viewCardImage(title, image) {
+  openPopup(popupViewCard);
+  imageViewTitle.textContent = title;
+  imageView.alt = title;
+  imageView.src = image;
+}
 
-  function toggleLikeButton () {
-    buttonLike.classList.toggle('gallery__like_active');
-  };
-
-  function viewCardImage () {
-    openPopup(popupViewCard);
-    imageView.src = cardData.link;
-    imageView.alt = cardData.name;
-    imageViewTitle.textContent = cardData.name;
-  };
-
-  function removeCard () {
-    card.remove();
-  };
-
-  buttonLike.addEventListener('click', toggleLikeButton);
-  cardImage.addEventListener('click', viewCardImage);
-  buttonRemove.addEventListener('click', removeCard);
-
-  return galleryCard;
-};
-
-initialCards.forEach(function (cardData) {
+initialCards.forEach(function(cardData) {
   gallery.append(createGalleryCard(cardData));
-});
+})
 
 function handleAddFormSubmit(evt) {
   evt.preventDefault();
@@ -128,7 +106,7 @@ function handleAddFormSubmit(evt) {
   });
   gallery.prepend(createGalleryCard(cardData));
   closePopup(popupAddImage);
-};
+}
 
 formAddImage.addEventListener('submit', handleAddFormSubmit);
 
