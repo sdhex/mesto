@@ -18,6 +18,7 @@ export default class Card {
 
   _removeCard() {
     this._card.remove();
+    this._card = null;
   }
 
   _toggleLike() {
@@ -38,12 +39,12 @@ export default class Card {
 
   generateCard() {
     this._card = this._getTemplate();
-    this._card.querySelector('.gallery__title').textContent = this._title;
-    this._card.querySelector('.gallery__image').alt = this._title;
-    this._card.querySelector('.gallery__image').src = this._image;
+    this._cardImage = this._card.querySelector('.gallery__image');
     this._buttonRemove = this._card.querySelector('.gallery__remove');
     this._buttonLike = this._card.querySelector('.gallery__like');
-    this._cardImage = this._card.querySelector('.gallery__image');
+    this._cardImage.alt = this._title;
+    this._cardImage.src = this._image;
+    this._card.querySelector('.gallery__title').textContent = this._title;
 
     this._setEventListeners();
 

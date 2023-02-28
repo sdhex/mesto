@@ -3,10 +3,10 @@ export default class FormValidator {
     this._form = form;
     this._config = config;
     this._inputList = this._form.querySelectorAll(this._config.inputSelector);
+    this._buttonSubmit = this._form.querySelector(this._config.submitButtonSelector);
   }
 
   _toggleButton() {
-    this._buttonSubmit = this._form.querySelector(this._config.submitButtonSelector);
     const isFormValid = this._form.checkValidity();
 
     this._buttonSubmit.disabled = !isFormValid;

@@ -104,10 +104,10 @@ function createGalleryCard(cardData) {
 }
 
 function viewCardImage(title, image) {
-  openPopup(popupViewCard);
   imageViewTitle.textContent = title;
   imageView.alt = title;
   imageView.src = image;
+  openPopup(popupViewCard);
 }
 
 initialCards.forEach((cardData) => {
