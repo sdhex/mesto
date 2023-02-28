@@ -12,35 +12,32 @@ const formValidationConfig = {
 
 const gallery = document.querySelector('.gallery');
 
-//buttons
 const buttonOpenEditProfile = document.querySelector('.profile__edit-button');
 const buttonOpenAddImage = document.querySelector('.profile__add-button');
 const closeButtons = document.querySelectorAll('.popup__close-button');
 
-//popups
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupAddImage = document.querySelector('.popup_add-image');
 const popupViewCard = document.querySelector('.popup_view-image');
 
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
-//inputs
+
 const profileNameInput = document.querySelector('.popup__input_type_profile-name');
 const profileDescriptionInput = document.querySelector('.popup__input_type_profile-description');
 const cardTitleInput = document.querySelector('.popup__input_type_gallery-title');
 const cardLinkInput = document.querySelector('.popup__input_type_gallery-link');
 
-//forms
 const profileForm = document.forms["profile-form"];
 const cardForm = document.forms["card-form"];
 
-//image
 const imageView = document.querySelector('.popup__image');
 const imageViewTitle = document.querySelector('.popup__image-title');
 
 const validateProfileForm = new FormValidator(profileForm, formValidationConfig);
-validateProfileForm.enableValidation();
 const validateCardForm = new FormValidator(cardForm, formValidationConfig);
+
+validateProfileForm.enableValidation();
 validateCardForm.enableValidation();
 
 function openPopup(popup) {
