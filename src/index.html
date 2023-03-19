@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -12,11 +11,11 @@
 <body class="page">
   <div class="page__content">
     <header class="header">
-      <img class="header__logo" src="./images/header-logo.svg" alt="логотип место">
+      <img class="header__logo" src="<%=require('./images/header-logo.svg')%>" alt="логотип место">
     </header>
     <main class="main">
       <section class="profile">
-        <img class="profile__avatar" src="./images/avatar.png" alt="изображение профиля">
+        <img class="profile__avatar" src="<%=require('./images/avatar.png')%>" alt="изображение профиля">
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <button class="profile__edit-button" type="button" aria-label="открыть редактирование профиля"></button>
@@ -114,7 +113,7 @@
     </div>
   </template>
 
-  <script type="module" src="./scripts/index.js"></script>
+  <script type="module" src="./pages/index.js"></script>
 </body>
 
 </html>
