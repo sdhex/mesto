@@ -13,11 +13,19 @@ const buttonAddImage = document.querySelector('.profile__add-button');
 const profileNameInput = document.querySelector('.popup__input_type_profile-name');
 const profileDescriptionInput = document.querySelector('.popup__input_type_profile-description');
 
-const validateProfileForm = new FormValidator(document.forms["profile-form"], formValidationConfig);
-validateProfileForm.enableValidation();
+const formValidators = {};
 
-const validateCardForm = new FormValidator(document.forms["card-form"], formValidationConfig);
-validateCardForm.enableValidation();
+const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector))
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(formElement, config);
+    const formName = formElement.getAttribute('name');
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+}
+
+enableValidation(formValidationConfig);
 
 const popupWithImage = new PopupWithImage('.popup_view-image');
 popupWithImage.setEventListeners();
@@ -53,8 +61,8 @@ popupEditProfile.setEventListeners();
 buttonEditProfile.addEventListener('click', () => {
   profileNameInput.value = user.getUserInfo().name;
   profileDescriptionInput.value = user.getUserInfo().description;
+  formValidators['profile-form'].resetValidation();
   popupEditProfile.open();
-  validateProfileForm.resetValidation();
 });
 
 const popupAddImage = new PopupWithForm(
@@ -69,5 +77,5 @@ const popupAddImage = new PopupWithForm(
 popupAddImage.setEventListeners();
 buttonAddImage.addEventListener('click', () => {
   popupAddImage.open();
-  validateCardForm.resetValidation();
+  formValidators['card-form'].resetValidation();
 });
