@@ -59,8 +59,7 @@ const popupEditProfile = new PopupWithForm(
   });
 popupEditProfile.setEventListeners();
 buttonEditProfile.addEventListener('click', () => {
-  profileNameInput.value = user.getUserInfo().name;
-  profileDescriptionInput.value = user.getUserInfo().description;
+  popupEditProfile.setInputValues(user.getUserInfo());
   formValidators['profile-form'].resetValidation();
   popupEditProfile.open();
 });
@@ -76,6 +75,6 @@ const popupAddImage = new PopupWithForm(
 );
 popupAddImage.setEventListeners();
 buttonAddImage.addEventListener('click', () => {
-  popupAddImage.open();
   formValidators['card-form'].resetValidation();
+  popupAddImage.open();
 });
