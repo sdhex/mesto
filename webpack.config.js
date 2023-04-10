@@ -21,11 +21,11 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        use: 'babel-loader',
-        exclude: '/node-modules/'
-      },
+      // {
+      //   test: /\.js$/,
+      //   use: 'babel-loader',
+      //   exclude: '/node-modules/'
+      // },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/,
         type: 'asset/resource',
