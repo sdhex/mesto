@@ -133,8 +133,8 @@ const popupAddCard = new PopupWithForm(
 const popupConfirm = new PopupWithConfirmation(
   '.popup_confirm-delete',
   {
-    handleConfirmClick: ({ cardId, card }) => {
-      api.deleteCard(cardId)
+    handleConfirmClick: (card) => {
+      api.deleteCard(card.idCard)
         .then(() => {
           card.deleteCard();
           popupConfirm.close();
